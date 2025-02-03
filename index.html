@@ -1,48 +1,30 @@
 <html>
  <head>
   <title>
-   Couple Relationship Time
+   Rayssa e Gabriel
   </title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
-  <script>
-var x = setInterval(function() {
-var todaysDate = moment(new Date()); //"now"
-var pastDate = moment(new Date(2024,7,18));
-
-var duration = moment.duration(todaysDate.diff(pastDate))
-
-    var DataInicio = new Date(2024,8,18).getTime();
-
-    
-    var Agora = new Date().getTime();
-    var Tempo = Agora - DataInicio;
-
-// Time calculations for days, hours, minutes and seconds
-var anos = duration.years();
-var meses = duration.months();
-var dias = duration.days();
-var horas = duration.hours();
-var minutos = duration.minutes();
-var segundos = duration.seconds();
-
-if(anos != 0)
-{
-    document.getElementById("anos").innerHTML = anos + " anos";
-}
-document.getElementById("meses").innerHTML = meses + " meses";
-document.getElementById("dias").innerHTML = dias + " dias";
-document.getElementById("horas").innerHTML = horas + " horas";
-document.getElementById("minutos").innerHTML = minutos + " minutos";
-document.getElementById("segundos").innerHTML = segundos + " segundos";
-}, 1000);
-  </script>
+  <script src="js/moment.min.js"></script>
+  <script src="js/script.js"></script>
+  
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
   <style>
    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-        body {
-            font-family: 'Roboto', sans-serif;
-        }
+   @import url("https://fonts.googleapis.com/css2?family=Pacifico:wght@200;400;600&display=swap");
+   @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css");
+   * {
+  box-sizing: border-box;
+}
+
+body { 
+  background-color: pink;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Pacifico', cursive;
+  margin: 0;
+  min-height: 100vh;
+}
         .fade-in {
             animation: fadeIn 2s ease-in-out;
         }
@@ -54,9 +36,25 @@ document.getElementById("segundos").innerHTML = segundos + " segundos";
                 opacity: 1;
             }
         }
+        .heart {
+  position: fixed;
+  font-size: 1.5rem;
+  top: -1vh;
+  transform: translateY(0);
+  animation: fall 3s linear forwards;
+}
+
+@keyframes fall {
+  from {
+     transform: translateY(0vh) translateX(-10vw); 
+  }
+  to {
+     transform: translateY(105vh) translateX(10vw); 
+  }
+}  
   </style>
  </head>
- <body class="bg-gray-100 flex items-center justify-center min-h-screen">
+ <body class="flex items-center justify-center min-h-screen">
   <div class="bg-white shadow-lg rounded-lg p-6 max-w-md w-full fade-in">
    <div class="text-center mb-6">
     <h1 class="text-3xl font-bold text-gray-800">
