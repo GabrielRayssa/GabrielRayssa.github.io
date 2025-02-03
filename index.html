@@ -1,0 +1,69 @@
+<html>
+ <head>
+  <title>
+   Couple Relationship Time
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <script>
+    var DataInicio = new Date("Ago 18, 2024 00:00:00").getTime();
+    var Agora = new Date().getTime();
+
+    var Tempo = Agora - DataInicio;
+
+// Time calculations for days, hours, minutes and seconds
+var days = Math.floor(Tempo / (1000 * 60 * 60 * 24));
+var hours = Math.floor((Tempo % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+var minutes = Math.floor((Tempo % (1000 * 60 * 60)) / (1000 * 60));
+var seconds = Math.floor((Tempo % (1000 * 60)) / 1000);
+
+document.getElementById("contador").innerHTML = days + "d " + hours + "h "
++ minutes + "m " + seconds + "s ";
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .fade-in {
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+  </style>
+ </head>
+ <body class="bg-gray-100 flex items-center justify-center min-h-screen">
+  <div class="bg-white shadow-lg rounded-lg p-6 max-w-md w-full fade-in">
+   <div class="text-center mb-6">
+    <h1 class="text-3xl font-bold text-gray-800">
+     Our Relationship
+    </h1>
+    <p class="text-gray-600">
+     Together since: January 1, 2020
+    </p>
+   </div>
+   <div class="flex justify-center mb-6">
+    <div class="w-24 h-24 rounded-full overflow-hidden border-4 border-gray-300">
+     <img alt="Image of partner 1, a smiling person with short hair" class="w-full h-full object-cover" height="100" src="https://storage.googleapis.com/a1aa/image/VfaofKHVou-Kp6-ftFh7wVKEZsmGqN-APAeYLSGfQuA.jpg" width="100"/>
+    </div>
+    <div class="w-24 h-24 rounded-full overflow-hidden border-4 border-gray-300 -ml-4">
+     <img alt="Image of partner 2, a smiling person with long hair" class="w-full h-full object-cover" height="100" src="https://storage.googleapis.com/a1aa/image/Bfh1J08rwHu6FjVQS0wPWnBdh1KF1NiHLqCzT8hCm48.jpg" width="100"/>
+    </div>
+   </div>
+   <div class="text-center">
+    <p class="text-gray-700 text-lg">
+     We have been together for:
+    </p>
+    <p id="contador" class="text-2xl font-bold text-gray-800">
+    </p>
+   </div>
+  </div>
+ </body>
+</html>
