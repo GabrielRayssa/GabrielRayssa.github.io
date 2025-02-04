@@ -3,59 +3,15 @@
   <title>
    Rayssa e Gabriel
   </title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
   <script src="js/moment.min.js"></script>
   <script src="js/script.js"></script>
-  
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-  <style>
-   @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-   @import url("https://fonts.googleapis.com/css2?family=Pacifico:wght@200;400;600&display=swap");
-   @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css");
-   * {
-  box-sizing: border-box;
-}
-
-body { 
-  background-color: pink;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Pacifico', cursive;
-  margin: 0;
-  min-height: 100vh;
-}
-        .fade-in {
-            animation: fadeIn 2s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-        .heart {
-  position: fixed;
-  font-size: 1.5rem;
-  top: -1vh;
-  transform: translateY(0);
-  animation: fall 3s linear forwards;
-}
-
-@keyframes fall {
-  from {
-     transform: translateY(0vh) translateX(-10vw); 
-  }
-  to {
-     transform: translateY(105vh) translateX(10vw); 
-  }
-}  
-  </style>
+  <link rel="stylesheet" type="text/css" href="css/style.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
  </head>
- <body class="flex items-center justify-center min-h-screen">
-  <div class="bg-white shadow-lg rounded-lg p-6 max-w-md w-full fade-in">
+ <body class="flex flex-col items-center justify-center min-h-screen min-w-96 pt-24">
+  <div class="bg-white shadow-lg rounded-lg p-6 max-w-md w-full fade-in my-8">
    <div class="text-center mb-6">
     <h1 class="text-3xl font-bold text-gray-800">
      Nosso Relacionamento
@@ -66,10 +22,10 @@ body {
    </div>
    <div class="flex justify-center mb-6">
     <div class="w-24 h-24 rounded-full overflow-hidden border-4 border-gray-300">
-     <img alt="Image of partner 1" class="w-full h-full object-cover" height="100" src="images\gab.jpg" width="100"/>
+     <img alt="imagem do gabs" class="w-full h-full object-cover" height="100" src="images\gab.jpg" width="100"/>
     </div>
     <div class="w-24 h-24 rounded-full overflow-hidden border-4 border-gray-300 -ml-4">
-     <img alt="Image of partner 2" class="w-full h-full object-cover" height="100" src="images\ray.jpg" width="100"/>
+     <img alt="imagem da rayssa" class="w-full h-full object-cover" height="100" src="images\ray.jpg" width="100"/>
     </div>
    </div>
    <div class="text-center">
@@ -84,5 +40,100 @@ body {
     <p id="segundos" class="text-2xl font-bold text-gray-800"></p>
    </div>
   </div>
+  <div class="bg-white shadow-lg rounded-lg p-6 max-w-md w-full fade-in my-8">
+    <p class="text-gray-700 text-lg text-center">
+        Isso equivale a:
+    </p>
+  <div class="relative w-full max-w-4xl mx-auto">
+    <!-- Carousel wrapper -->
+    <div class="overflow-hidden relative rounded-lg">
+        <div
+            class="flex transition-transform duration-500 ease-in-out transform"
+            id="carousel"
+        >
+            <!-- anos -->
+            <div class="min-w-full">
+                <div class="text-center">
+                    <p id="asAnos" class="text-2xl font-bold text-gray-800"></p>
+                </div>
+            </div>
+            <!-- meses -->
+            <div class="min-w-full">
+                <div class="text-center">
+                    <p id="asMeses" class="text-2xl font-bold text-gray-800"></p>
+                </div>
+            </div>
+            <!-- dias -->
+            <div class="min-w-full">
+                <div class="text-center">
+                    <p id="asDias" class="text-2xl font-bold text-gray-800"></p>
+                </div>
+            </div>
+            <!-- horas -->
+            <div class="min-w-full">
+                <div class="text-center">
+                    <p id="asHoras" class="text-2xl font-bold text-gray-800"></p>
+                </div>
+            </div>
+            <!-- minutos -->
+            <div class="min-w-full">
+                <div class="text-center">
+                    <p id="asMinutos" class="text-2xl font-bold text-gray-800"></p>
+                </div>
+            </div>
+            <!-- segundos -->
+            <div class="min-w-full">
+                <div class="text-center">
+                    <p id="asSegundos" class="text-2xl font-bold text-gray-800"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-700 text-lg text-center">
+        incríveis ao seu lado!
+    </p>
+
+    <!-- Navigation buttons -->
+    <button
+        class="absolute top-1/2 left-0 transform -translate-y-1/2 p-3 bg-gray-700 bg-opacity-50 rounded-full text-white hover:bg-opacity-75 focus:outline-none"
+        onclick="scrollCarousel(-1)"
+    >
+        <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 19l-7-7 7-7"
+            ></path>
+        </svg>
+    </button>
+    <button
+        class="absolute top-1/2 right-0 transform -translate-y-1/2 p-3 bg-gray-700 bg-opacity-50 rounded-full text-white hover:bg-opacity-75 focus:outline-none"
+        onclick="scrollCarousel(1)"
+    >
+        <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"
+            ></path>
+        </svg>
+    </button>
+</div>
+</div>
+<div class="bg-white shadow-lg rounded-lg p-6 max-w-md w-full fade-in my-8 h-full"></div>
  </body>
 </html>

@@ -3,23 +3,22 @@ function contador() {
     var DataInicio = moment(new Date(2024,7,18));
     
     var duration = moment.duration(hoje.diff(DataInicio))
-    
-    var anos = duration.years();
-    var meses = duration.months();
-    var dias = duration.days();
-    var horas = duration.hours();
-    var minutos = duration.minutes();
-    var segundos = duration.seconds();
-    
-    if(anos != 0)
+    if(duration.years() != 0)
     {
-        document.getElementById("anos").innerHTML = anos + " anos";
+        document.getElementById("anos").innerHTML = duration.years() + " anos";
     }
-    document.getElementById("meses").innerHTML = meses + " meses";
-    document.getElementById("dias").innerHTML = dias + " dias";
-    document.getElementById("horas").innerHTML = horas + " horas";
-    document.getElementById("minutos").innerHTML = minutos + " minutos";
-    document.getElementById("segundos").innerHTML = segundos + " segundos";
+    document.getElementById("meses").innerHTML = duration.months() + " meses";
+    document.getElementById("dias").innerHTML = duration.days() + " dias";
+    document.getElementById("horas").innerHTML = duration.hours() + " horas";
+    document.getElementById("minutos").innerHTML = duration.minutes() + " minutos";
+    document.getElementById("segundos").innerHTML = duration.seconds() + " segundos";
+
+    document.getElementById("asAnos").innerHTML = duration.as('years').toFixed(2) + " meses";
+    document.getElementById("asMeses").innerHTML = duration.as('months').toFixed(2) + " meses";
+    document.getElementById("asDias").innerHTML = duration.as('days').toFixed(2) + " dias";
+    document.getElementById("asHoras").innerHTML = duration.as('hours').toFixed(2) + " horas";
+    document.getElementById("asMinutos").innerHTML = duration.as('minutes').toFixed(1) + " minutos";
+    document.getElementById("asSegundos").innerHTML = duration.as('seconds').toFixed(0) + " segundos";
 }
 
 function createHeart() {
@@ -40,3 +39,16 @@ function createHeart() {
   
 setInterval(contador, 1000);
 setInterval(createHeart, 300);
+
+
+let currentIndex = 0;
+
+			function scrollCarousel(direction) {
+				const carousel = document.getElementById("carousel");
+				const totalSlides = carousel.children.length;
+				currentIndex =
+					(currentIndex + direction + totalSlides) % totalSlides;
+				carousel.style.transform = `translateX(-${
+					currentIndex * 100
+				}%)`;
+			}
