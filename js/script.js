@@ -172,7 +172,7 @@ function BaixarImagem(){
     xhr.onload = function () {
         let a = document.createElement('a');
         a.href = window.URL.createObjectURL(xhr.response);
-        a.download = 'image_name.png';
+        a.download = 'amor.png';
         a.style.display = 'none';
         document.body.appendChild(a);
         a.click();
