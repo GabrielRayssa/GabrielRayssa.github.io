@@ -1,139 +1,205 @@
 <html>
- <head>
-  <title>
-   Rayssa e Gabriel
-  </title>
-  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-  <script src="js/moment.min.js"></script>
-  <script src="js/script.js"></script>
-  <link rel="stylesheet" type="text/css" href="css/style.css"/>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
- </head>
- <body class="flex flex-col items-center justify-center min-h-screen min-w-96 pt-24">
-  <div class="bg-white shadow-lg rounded-lg p-6 max-w-md w-full fade-in my-8">
-   <div class="text-center mb-6">
-    <h1 class="text-3xl font-bold text-gray-800">
-     Nosso Relacionamento
-    </h1>
-    <p class="text-gray-600">
-     Juntos desde: 18 de agosto de 2024
-    </p>
-   </div>
-   <div class="flex justify-center mb-6">
-    <div class="w-24 h-24 rounded-full overflow-hidden border-4 border-gray-300">
-     <img alt="imagem do gabs" class="w-full h-full object-cover" height="100" src="images\gab.jpg" width="100"/>
+
+<head>
+    <title>
+        Rayssa e Gabriel
+    </title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="js/moment.min.js"></script>
+    <script src="js/script.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body id="body" >
+
+    <div id="Senha" class="hidden place-items-center">
+        <div class="form-container margin-vh-33">
+            <form class="form">
+              <div class="form-group">
+                <h1 class="text-3xl font-bold textTitle">
+                Rayssa e Gabriel
+            </h1>
+            <h2>
+                Qual o nosso dia?
+            </h2>
+              </div>
+              <div class="input-fields">
+                <input tabindex="1" id="Senha1" placeholder="" type="tel" maxlength="1" required="" onkeyup="nextField(this);">
+                <input tabindex="2" id="Senha2" placeholder="" type="tel" maxlength="1" required="" onkeyup="nextField(this);">
+                <input tabindex="3" id="Senha3" placeholder="" type="tel" maxlength="1" required="" onkeyup="nextField(this);">
+                <input tabindex="4" id="Senha4" placeholder="" type="tel" maxlength="1" required="" onkeyup="nextField(this);">
+              </div>
+              <div class="form-group justify-around" style="flex-direction: row;">
+                <button tabindex="5" class="form-submit-btn" type="submit" onclick="Acessar()">Acessar</button>
+              </div>
+            </form>
+          </div>
     </div>
-    <div class="w-24 h-24 rounded-full overflow-hidden border-4 border-gray-300 -ml-4">
-     <img alt="imagem da rayssa" class="w-full h-full object-cover" height="100" src="images\ray.jpg" width="100"/>
-    </div>
-   </div>
-   <div class="text-center">
-    <p class="text-gray-700 text-lg">
-     Estivemos juntos por:
-    </p>
-    <p id="anos" class="text-2xl font-bold text-gray-800"></p>
-    <p id="meses" class="text-2xl font-bold text-gray-800"></p>
-    <p id="dias" class="text-2xl font-bold text-gray-800"></p>
-    <p id="horas" class="text-2xl font-bold text-gray-800"></p>
-    <p id="minutos" class="text-2xl font-bold text-gray-800"></p>
-    <p id="segundos" class="text-2xl font-bold text-gray-800"></p>
-   </div>
-  </div>
-  <div class="bg-white shadow-lg rounded-lg p-6 max-w-md w-full fade-in my-8">
-    <p class="text-gray-700 text-lg text-center">
-        Isso equivale a:
-    </p>
-  <div class="relative w-full max-w-4xl mx-auto">
-    <!-- Carousel wrapper -->
-    <div class="overflow-hidden relative rounded-lg">
-        <div
-            class="flex transition-transform duration-500 ease-in-out transform"
-            id="carousel"
-        >
-            <!-- anos -->
-            <div class="min-w-full">
-                <div class="text-center">
-                    <p id="asAnos" class="text-2xl font-bold text-gray-800"></p>
-                </div>
+
+    <div id="Loader">
+        <div class="cssload-main">
+            <div class="cssload-heart">
+                <span class="cssload-heartL"></span>
+                <span class="cssload-heartR"></span>
+                <span class="cssload-square"></span>
             </div>
-            <!-- meses -->
-            <div class="min-w-full">
-                <div class="text-center">
-                    <p id="asMeses" class="text-2xl font-bold text-gray-800"></p>
-                </div>
-            </div>
-            <!-- dias -->
-            <div class="min-w-full">
-                <div class="text-center">
-                    <p id="asDias" class="text-2xl font-bold text-gray-800"></p>
-                </div>
-            </div>
-            <!-- horas -->
-            <div class="min-w-full">
-                <div class="text-center">
-                    <p id="asHoras" class="text-2xl font-bold text-gray-800"></p>
-                </div>
-            </div>
-            <!-- minutos -->
-            <div class="min-w-full">
-                <div class="text-center">
-                    <p id="asMinutos" class="text-2xl font-bold text-gray-800"></p>
-                </div>
-            </div>
-            <!-- segundos -->
-            <div class="min-w-full">
-                <div class="text-center">
-                    <p id="asSegundos" class="text-2xl font-bold text-gray-800"></p>
-                </div>
-            </div>
+            <div class="cssload-shadow"></div>
         </div>
     </div>
-    <p class="text-gray-700 text-lg text-center">
-        incríveis ao seu lado!
-    </p>
 
-    <!-- Navigation buttons -->
-    <button
-        class="absolute top-1/2 left-0 transform -translate-y-1/2 p-3 bg-gray-700 bg-opacity-50 rounded-full text-white hover:bg-opacity-75 focus:outline-none"
-        onclick="scrollCarousel(-1)"
-    >
-        <svg
-            class="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-        >
-            <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M15 19l-7-7 7-7"
-            ></path>
-        </svg>
-    </button>
-    <button
-        class="absolute top-1/2 right-0 transform -translate-y-1/2 p-3 bg-gray-700 bg-opacity-50 rounded-full text-white hover:bg-opacity-75 focus:outline-none"
-        onclick="scrollCarousel(1)"
-    >
-        <svg
-            class="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-        >
-            <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 5l7 7-7 7"
-            ></path>
-        </svg>
-    </button>
+    <div id="Conteudo" class="hidden flex flex-col items-center justify-center min-h-screen min-w-96 pt-24">
+
+    <!--#region Tempos  -->
+    <div class="bg-white shadow-lg rounded-lg p-6 max-w-md w-full fade-in my-8">
+        <div class="text-center mb-6">
+            <h1 class="text-3xl font-bold text-gray-800">
+                Gabs e Ray
+            </h1>
+            <p class="text-gray-600">
+                Juntos desde: 18 de agosto de 2024
+            </p>
+        </div>
+        <div class="flex justify-center mb-6">
+            <div class="w-24 h-24 rounded-full overflow-hidden border-4 border-gray-300">
+                <img alt="imagem do gabs" class="w-full h-full object-cover" height="100" src="images\gab.jpg"
+                    width="100" />
+            </div>
+            <div class="w-24 h-24 rounded-full overflow-hidden border-4 border-gray-300 -ml-4">
+                <img alt="imagem da rayssa" class="w-full h-full object-cover" height="100" src="images\ray.jpg"
+                    width="100" />
+            </div>
+        </div>
+        <div class="text-center">
+            <p class="text-gray-700 text-lg">
+                Estivemos juntos por:
+            </p>
+            <p id="anos" class="text-2xl font-bold text-gray-800"></p>
+            <p id="meses" class="text-2xl font-bold text-gray-800"></p>
+            <p id="dias" class="text-2xl font-bold text-gray-800"></p>
+            <p id="horas" class="text-2xl font-bold text-gray-800"></p>
+            <p id="minutos" class="text-2xl font-bold text-gray-800"></p>
+            <p id="segundos" class="text-2xl font-bold text-gray-800"></p>
+        </div>
+    </div>
+    <!--#endregion -->
+
+    <!--#region Equivalente  -->
+    <div class="bg-white shadow-lg rounded-lg p-6 max-w-md w-full fade-in my-8">
+        <p class="text-gray-700 text-lg text-center">
+            Isso equivale a:
+        </p>
+        <div class="relative w-full max-w-4xl mx-auto">
+            <!-- Carousel wrapper -->
+            <div class="overflow-hidden relative rounded-lg">
+                <div class="flex transition-transform duration-500 ease-in-out transform" id="carousel">
+                    <!-- anos -->
+                    <div class="min-w-full">
+                        <div class="text-center">
+                            <p id="asAnos" class="text-2xl font-bold text-gray-800"></p>
+                        </div>
+                    </div>
+                    <!-- meses -->
+                    <div class="min-w-full">
+                        <div class="text-center">
+                            <p id="asMeses" class="text-2xl font-bold text-gray-800"></p>
+                        </div>
+                    </div>
+                    <!-- dias -->
+                    <div class="min-w-full">
+                        <div class="text-center">
+                            <p id="asDias" class="text-2xl font-bold text-gray-800"></p>
+                        </div>
+                    </div>
+                    <!-- horas -->
+                    <div class="min-w-full">
+                        <div class="text-center">
+                            <p id="asHoras" class="text-2xl font-bold text-gray-800"></p>
+                        </div>
+                    </div>
+                    <!-- minutos -->
+                    <div class="min-w-full">
+                        <div class="text-center">
+                            <p id="asMinutos" class="text-2xl font-bold text-gray-800"></p>
+                        </div>
+                    </div>
+                    <!-- segundos -->
+                    <div class="min-w-full">
+                        <div class="text-center">
+                            <p id="asSegundos" class="text-2xl font-bold text-gray-800"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="text-gray-700 text-lg text-center">
+                incríveis ao seu lado!
+            </p>
+
+            <!-- Navigation buttons -->
+            <button
+                class="absolute top-1/2 left-0 transform -translate-y-1/2 p-3  bg-opacity-50 rounded-full text-black hover:bg-opacity-75 focus:outline-none"
+                onclick="scrollCarousel(-1)">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+            </button>
+            <button
+                class="absolute top-1/2 right-0 transform -translate-y-1/2 p-3  bg-opacity-50 rounded-full text-black hover:bg-opacity-75 focus:outline-none"
+                onclick="scrollCarousel(1)">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <!--#endregion -->
+    
+    <!--#region Fotos  -->
+    <div class="bg-white shadow-lg rounded-lg p-6 max-w-md w-full fade-in my-8">
+        <p class="text-gray-700 text-lg text-center">
+            Algumas de nossas memórias especiais:
+        </p>
+        <div class="relative w-full max-w-4xl mx-auto">
+            <!-- Carousel wrapper -->
+            <div class="overflow-hidden relative rounded-lg">
+                <div class="flex transition-transform duration-500 ease-in-out transform" id="carouselfotos">
+                    
+                </div>
+            </div>
+
+            <!-- Navigation buttons -->
+            <button
+                class="absolute top-1/2 left-0 transform -translate-y-1/2 p-3 bg-opacity-50 rounded-full text-black hover:bg-opacity-75 focus:outline-none"
+                onclick="scrollCarouselfotos(-1)">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+            </button>
+            <button
+                class="absolute top-1/2 right-0 transform -translate-y-1/2 p-3 bg-opacity-50 rounded-full text-black hover:bg-opacity-75 focus:outline-none"
+                onclick="scrollCarouselfotos(1)">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <!--#endregion -->
+
+    <!--#region Canva  -->
+    <div class="bg-white shadow-lg rounded-lg p-6 max-w-md w-full fade-in my-8">
+        <canvas id="Compartilhar" width="400" height="400">
+            
+          </canvas>
+          <button type="button" onclick="BaixarImagem()">Download </button>
+    </div>
+    <!--#endregion -->
 </div>
-</div>
-<div class="bg-white shadow-lg rounded-lg p-6 max-w-md w-full fade-in my-8 h-full"></div>
- </body>
+</body>
+
 </html>
