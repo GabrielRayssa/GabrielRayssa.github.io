@@ -57,7 +57,7 @@ function contador() {
     document.getElementById("minutos").innerHTML = duration.minutes() + " minutos";
     document.getElementById("segundos").innerHTML = duration.seconds() + " segundos";
 
-    document.getElementById("asAnos").innerHTML = parseFloat(duration.as('years').toFixed(2)).toLocaleString('pt-BR') + " meses";
+    document.getElementById("asAnos").innerHTML = parseFloat(duration.as('years').toFixed(2)).toLocaleString('pt-BR') + " anos";
     document.getElementById("asMeses").innerHTML = parseFloat(duration.as('months').toFixed(2)).toLocaleString('pt-BR') + " meses";
     document.getElementById("asDias").innerHTML = parseFloat(duration.as('days').toFixed(2)).toLocaleString('pt-BR') + " dias";
     document.getElementById("asHoras").innerHTML = parseFloat(duration.as('hours').toFixed(2)).toLocaleString('pt-BR') + " horas";
