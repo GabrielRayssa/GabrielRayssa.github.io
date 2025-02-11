@@ -32,7 +32,8 @@ body {
     opacity: 1;
   }
 }
-.fotos{
+
+.fotos {
   height: 250px;
   object-fit: contain;
   display: block;
@@ -40,7 +41,7 @@ body {
   margin-right: auto;
 }
 
-.margin-vh-33{
+.margin-vh-33 {
   margin-top: 33vh;
 }
 
@@ -62,6 +63,7 @@ body {
     transform: translateY(105vh) translateX(10vw);
   }
 }
+
 /*#endregion hearts*/
 
 /*#region Loader*/
@@ -172,8 +174,8 @@ body {
   bottom: -.5em;
   width: 1em;
   height: .24em;
-  background-color: rgb(215,215,215);
-  border: 1px solid rgb(215,215,215);
+  background-color: rgb(215, 215, 215);
+  border: 1px solid rgb(215, 215, 215);
   border-radius: 50%;
   animation: cssload-shadow 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
   -o-animation: cssload-shadow 2.88s cubic-bezier(0.75, 0, 0.5, 1) infinite normal;
@@ -350,41 +352,42 @@ body {
 @keyframes cssload-shadow {
   50% {
     transform: scale(0.5);
-    border-color: rgb(228,228,228);
+    border-color: rgb(228, 228, 228);
   }
 }
 
 @-o-keyframes cssload-shadow {
   50% {
     -o-transform: scale(0.5);
-    border-color: rgb(228,228,228);
+    border-color: rgb(228, 228, 228);
   }
 }
 
 @-ms-keyframes cssload-shadow {
   50% {
     -ms-transform: scale(0.5);
-    border-color: rgb(228,228,228);
+    border-color: rgb(228, 228, 228);
   }
 }
 
 @-webkit-keyframes cssload-shadow {
   50% {
     -webkit-transform: scale(0.5);
-    border-color: rgb(228,228,228);
+    border-color: rgb(228, 228, 228);
   }
 }
 
 @-moz-keyframes cssload-shadow {
   50% {
     -moz-transform: scale(0.5);
-    border-color: rgb(228,228,228);
+    border-color: rgb(228, 228, 228);
   }
 }
+
 /*#endregion Loader*/
 
 /*#region Senha*/
-#Senha{
+#Senha {
   background: rgb(39, 4, 59);
   width: 100vw;
   height: 100vh;
@@ -398,6 +401,7 @@ body {
   justify-content: space-between;
   gap: 10px;
 }
+
 .form .input-fields input {
   height: 2.5em;
   width: 2.5em;
@@ -411,6 +415,7 @@ body {
   background-color: transparent;
   border: 1px solid #414141;
 }
+
 .form .input-fields input:focus {
   box-shadow: inset 10px 10px 10px rgba(0, 0, 0, .15);
   transform: scale(1.05);
@@ -418,16 +423,18 @@ body {
   border-color: #e81cff;
   outline: none;
 }
+
 .textTitle {
   font-size: 1.5rem;
   color: #e81cffab;
   text-align: center;
   margin-bottom: 20px;
 }
+
 .form-container {
   width: 400px;
   background: linear-gradient(#212121, #212121) padding-box,
-              linear-gradient(145deg, transparent 35%,#e81cff, #40c9ff) border-box;
+    linear-gradient(145deg, transparent 35%, #e81cff, #40c9ff) border-box;
   border: 2px solid transparent;
   padding: 32px 24px;
   font-size: 14px;
@@ -523,8 +530,70 @@ body {
   background-color: #fff;
   border-color: #fff;
 }
-
-
-
-
 /*#endregion Senha*/
+
+
+/*#region Button*/
+.button {
+  position: relative;
+  overflow: hidden;
+  height: 3rem;
+  padding: 0 2rem;
+  border-radius: 1.5rem;
+  background: #3d3a4e;
+  background-size: 400%;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.button:hover::before {
+  transform: scaleX(1);
+}
+
+.button-content {
+  position: relative;
+  z-index: 1;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  width: 100%;
+  height: inherit;
+  border-radius: inherit;
+  background: linear-gradient(82.3deg,
+      #e81cff 10.8%,
+      #40c9ff 94.3%);
+  transition: all 0.475s;
+}
+/*#endregion Button*/
+
+
+.text-gradient {
+  color: #e81cff;
+  background-image: linear-gradient(45deg, #e81cff 10%, #40c9ff 94%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#Compartilhar{
+  width: 100%;
+    object-fit: contain;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
