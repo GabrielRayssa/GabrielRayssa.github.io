@@ -19,6 +19,10 @@ body {
   min-height: 100vh;
 }
 
+#Conteudo{
+  padding: 20px;
+}
+
 .fade-in {
   animation: fadeIn 2s ease-in-out;
 }
@@ -432,7 +436,9 @@ body {
 }
 
 .form-container {
-  width: 400px;
+  min-width: 320px;
+  width: 50%;
+  max-width: 400px;
   background: linear-gradient(#212121, #212121) padding-box,
     linear-gradient(145deg, transparent 35%, #e81cff, #40c9ff) border-box;
   border: 2px solid transparent;
@@ -539,11 +545,11 @@ body {
   overflow: hidden;
   height: 3rem;
   padding: 0 2rem;
-  border-radius: 1.5rem;
-  background: #3d3a4e;
-  background-size: 400%;
+  border-radius: 10px;
+  background: linear-gradient(#3d3a4e, #3d3a4e) padding-box,
+  linear-gradient(145deg, transparent 35%, #e81cff, #40c9ff) border-box;
   color: #fff;
-  border: none;
+  border: 2px solid transparent;
   cursor: pointer;
 }
 
@@ -563,6 +569,7 @@ body {
   left: 0;
   transform: scaleX(0);
   transform-origin: 0 50%;
+  background-size: 400%;
   width: 100%;
   height: inherit;
   border-radius: inherit;
@@ -606,11 +613,12 @@ input[type=number] {
   align-items: center;
   justify-content: center;
   gap: 6px;
-  background-color: rgb(129, 110, 216);
+  background: linear-gradient(#3d3a4e, #3d3a4e) padding-box,
+  linear-gradient(145deg, transparent 35%, #e81cff, #40c9ff) border-box;
   border-radius: 10px;
   cursor: pointer;
-  border: none;
-  box-shadow: 0px 0px 0px 2px rgb(212, 209, 255);
+  border: 2px solid transparent;
+  box-shadow: 0px 0px 0px 2px linear-gradient(45deg, #e81cff 10%, #40c9ff 94%);;
 }
 .bar {
   width: 50%;
@@ -646,5 +654,36 @@ input[type=number] {
   transform: translateX(-4px);
 }
 
-#spawnRate {
+#spawnRate{
+  width: 100%;
+  height: 3%;
+}
+
+.input-config {
+  width: 100%;
+  height: 44px;
+  background-color: #05060f0a;
+  border-radius: .5rem;
+  padding: 0 1rem;
+  border: 2px solid transparent;
+  font-size: 1rem;
+  transition: border-color .3s cubic-bezier(.25,.01,.25,1) 0s, color .3s cubic-bezier(.25,.01,.25,1) 0s,background .2s cubic-bezier(.25,.01,.25,1) 0s;
+}
+
+.label-config {
+  display: block;
+  margin-bottom: .3rem;
+  font-size: .9rem;
+  font-weight: bold;
+  color: #05060f99;
+  transition: color .3s cubic-bezier(.25,.01,.25,1) 0s;
+}
+
+.input-config :hover, .input-config :focus, .input-group:hover .input-config  {
+  outline: none;
+  border-color: #05060f;
+}
+
+.input-group:hover .label, .input:focus {
+  color: #05060fc2;
 }

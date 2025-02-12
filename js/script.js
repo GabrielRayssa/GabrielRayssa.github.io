@@ -105,36 +105,39 @@ setInterval(contador, 1000);
 
 function Modal() {
     var modal = document.getElementById("ModalSettings");
-    // Get the button that opens the modal
-    var btn = document.getElementById("modal-open");
-    // Get the <span> element that closes the modal
-    var span = document.getElementById("modal-close");
-    // When the user clicks on the button, open the modal
-    btn.onclick = function () {
-        modal.style.display = "block";
-    }
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function () {
-        modal.style.display = "none";
-    }
-    // When the user clicks anywhere outside of the modal, close it
     window.onclick = function (event) {
         if (event.target == modal) {
             modal.style.display = "none";
         }
+    },
+    document.getElementById("modal-open").onclick = function () {
+        modal.style.display = "block";
     }
     let interval = 333;
     let handle = setInterval(function() { createHeart('💗'); }, interval);
+
+    document.getElementById("spawnRateHidden").addEventListener("change", function () {
+        
+    });
+    document.getElementById("modal-close").onclick = function () {
+        document.getElementById("spawnRate").value = document.getElementById("spawnRateHidden").value;
+        document.getElementById("spawnItem").value = document.getElementById("spawnItemHidden").value;
+        document.getElementById("spawnRateValue").value = document.getElementById("spawnRateHidden").value + "/s"
+        modal.style.display = "none";
+    }
     interval = document.getElementById("modal-save").onclick = function () {    
-        interval = 1000 / document.getElementById("spawnRate").value;
-        item = document.getElementById("spawnItem").value;
+        spawnRate = document.getElementById("spawnRate").value;
+        spawnItem = document.getElementById("spawnItem").value;
+        document.getElementById("spawnRateHidden").value = spawnRate
+        document.getElementById("spawnItemHidden").value = spawnItem
+        
+        interval = 1000 / spawnRate;
         clearInterval(handle);
-        handle = setInterval(function() { createHeart(item); }, interval);
+        handle = setInterval(function() { createHeart(spawnItem); }, interval);
         modal.style.display = "none";
     };
     document.getElementById("spawnRate").addEventListener("change", function () {
-        interval = document.getElementById("spawnRate").value;
-        document.getElementById("spawnRateValue").value = interval + "/s";
+        document.getElementById("spawnRateValue").value = document.getElementById("spawnRate").value + "/s";
     });
 
 }
