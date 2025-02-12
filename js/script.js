@@ -1,9 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
     carregarFotos();
-    GerarImagem()
+    GerarImagem();
+    Modal();
 
-    const camposSenha = ["Senha1","Senha2","Senha3","Senha4"];
-    camposSenha.forEach(id =>{
+    const camposSenha = ["Senha1", "Senha2", "Senha3", "Senha4"];
+    camposSenha.forEach(id => {
         const campo = document.getElementById(id);
         campo.addEventListener("keydown", e => {
             previousField(e.target, e);
@@ -31,7 +32,7 @@ function nextField(current, event) {
     }
 }
 function previousField(current, event) {
-    if (event.key == 'Backspace' && event.target.value=="") {
+    if (event.key == 'Backspace' && event.target.value == "") {
         for (i = 0; i < current.form.elements.length; i++) {
             if (current.form.elements[i].tabIndex - current.tabIndex == -1) {
                 current.form.elements[i].focus();
@@ -84,14 +85,14 @@ function contador() {
     document.getElementById("asSegundos").innerHTML = parseFloat(duration.as('seconds').toFixed(0)).toLocaleString('pt-BR') + " segundos";
 }
 
-function createHeart() {
+function createHeart(innerText) {
     const heart = document.createElement('div');
     heart.classList.add('heart');
 
     heart.style.left = Math.random() * 100 + "vw";
     heart.style.animationDuration = Math.random() * 2 + 3 + "s";
 
-    heart.innerText = '💗';
+    heart.innerText = innerText;
 
     document.body.appendChild(heart);
 
@@ -101,8 +102,42 @@ function createHeart() {
 }
 
 setInterval(contador, 1000);
-setInterval(createHeart, 300);
 
+function Modal() {
+    var modal = document.getElementById("ModalSettings");
+    // Get the button that opens the modal
+    var btn = document.getElementById("modal-open");
+    // Get the <span> element that closes the modal
+    var span = document.getElementById("modal-close");
+    // When the user clicks on the button, open the modal
+    btn.onclick = function () {
+        modal.style.display = "block";
+    }
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+    let interval = 333;
+    let handle = setInterval(function() { createHeart('💗'); }, interval);
+    interval = document.getElementById("modal-save").onclick = function () {    
+        interval = 1000 / document.getElementById("spawnRate").value;
+        item = document.getElementById("spawnItem").value;
+        clearInterval(handle);
+        handle = setInterval(function() { createHeart(item); }, interval);
+        modal.style.display = "none";
+    };
+    document.getElementById("spawnRate").addEventListener("change", function () {
+        interval = document.getElementById("spawnRate").value;
+        document.getElementById("spawnRateValue").value = interval + "/s";
+    });
+
+}
 let currentIndex = 0;
 
 function scrollCarousel(direction) {
