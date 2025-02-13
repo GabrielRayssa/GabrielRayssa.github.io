@@ -84,7 +84,7 @@ function contador() {
     document.getElementById("asMinutos").innerHTML = parseFloat(duration.as('minutes').toFixed(1)).toLocaleString('pt-BR') + " minutos";
     document.getElementById("asSegundos").innerHTML = parseFloat(duration.as('seconds').toFixed(0)).toLocaleString('pt-BR') + " segundos";
     EnviarWhatsapp(duration);
-    if(duration.months() >= 5){
+    if(duration.months() >= 6){
         document.getElementById("modal-surpresa-open").className = "button";
     }
     if(duration.months() == 6 && duration.days() == 0 && duration.hours() == 0 && duration.minutes() == 0 && duration.seconds() > 0 && duration.seconds() < 5)
