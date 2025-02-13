@@ -87,7 +87,7 @@ function contador() {
     if(duration.months() >= 5){
         document.getElementById("modal-surpresa-open").className = "button";
     }
-    if(duration.months() == 5 && duration.days() == 25 && duration.hours() == 1 && duration.minutes() == 14 && duration.seconds() > 0 && duration.seconds() < 5)
+    if(duration.months() == 6 && duration.days() == 0 && duration.hours() == 0 && duration.minutes() == 0 && duration.seconds() > 0 && duration.seconds() < 5)
         {
         ExplosaoSentimentos()
         document.getElementById("ModalSurpresa").style.display = "block";
