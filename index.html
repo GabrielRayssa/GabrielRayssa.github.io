@@ -9,6 +9,7 @@
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <script src="js/moment.min.js"></script>
     <script src="js/script.js"></script>
+    <script src="https://unpkg.com/emoji-blast/dist/global.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -233,7 +234,7 @@
                 </button>
             </div>
         </div>
-        
+
         <div class="bg-white shadow-lg rounded-lg p-6 max-w-md w-full fade-in my-8">
             <div class="flex justify-around">
                 <div class="flex-2">
@@ -294,9 +295,9 @@
 
                     <div class="mt-4 flex justify-end">
                         <div class="flex-1">
-                            <button id="modal-surpresa-open"
-                                class="px-4 bg-gray-100 p-3 rounded-lg text-black hover:bg-gray-200">6
-                                meses</button>
+                            <button type="button" class="hidden button" id="modal-surpresa-open"
+                                class="px-4 bg-gray-100 p-3 rounded-lg text-black hover:bg-gray-200"><span
+                                class="button-content">6 meses</span></button>
                         </div>
                         <div class="flex-1 flex justify-end">
                             <button id="modal-save"
@@ -343,5 +344,4 @@
 
 
 </body>
-
 </html>

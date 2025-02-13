@@ -84,6 +84,14 @@ function contador() {
     document.getElementById("asMinutos").innerHTML = parseFloat(duration.as('minutes').toFixed(1)).toLocaleString('pt-BR') + " minutos";
     document.getElementById("asSegundos").innerHTML = parseFloat(duration.as('seconds').toFixed(0)).toLocaleString('pt-BR') + " segundos";
     EnviarWhatsapp(duration);
+    if(duration.months() >= 5){
+        document.getElementById("modal-surpresa-open").className = "button";
+    }
+    if(duration.months() == 5 && duration.days() == 25 && duration.hours() == 1 && duration.minutes() == 5 && duration.seconds() > 0 && duration.seconds() < 5)
+        {
+        ExplosaoSentimentos()
+        document.getElementById("ModalSurpresa").style.display = "block";
+    }
 }
 
 function createHeart(innerText) {
@@ -156,6 +164,7 @@ function Modal() {
 function ModalSurpresa(){
     var modal = document.getElementById("ModalSurpresa");
     document.getElementById("modal-surpresa-open").onclick = function () {
+        ExplosaoSentimentos();
         modal.style.display = "block";
     }
     document.getElementById("modal-surpresa-fechar-x").onclick = function () {
@@ -167,6 +176,67 @@ function ModalSurpresa(){
     document.getElementById("modal-surpresa-overlay").onclick = function () {
         modal.style.display = "none";
     }
+}
+
+function ExplosaoSentimentos(){
+    const heartCoords = [
+        [500, 600],
+        // bottom point
+        [500, 410],
+        // center point
+        // left line (y = x + 100)
+        [350, 450],
+        [375, 475],
+        [400, 500],
+        [425, 525],
+        [450, 550],
+        [475, 575],
+        // right line (y = -x + 1100)
+        [650, 450],
+        [623, 477],
+        [600, 500],
+        [550, 550],
+        [574, 526],
+        [526, 574],
+        // left curve
+        [340, 410],
+        [340, 430],
+        [350, 385],
+        [370, 365],
+        [400, 350],
+        [430, 355],
+        [460, 370],
+        [480, 385],
+        // right curve
+        [520, 385],
+        [540, 370],
+        [570, 355],
+        [600, 350],
+        [630, 365],
+        [650, 385],
+        [660, 410],
+        [660, 430]
+      ];
+      for (const [xCoordinate, yCoordinate] of heartCoords) {
+        emojiBlast({
+          emojiCount: 1,
+          emojis: ["❤️‍🔥"],
+          physics: {
+            fontSize: 35,
+            gravity: 0.05,
+            initialVelocities: {
+              x: 0,
+              y: -5
+            },
+            rotation: 0,
+            rotationDeceleration: 0
+          },
+          position: {
+            x: xCoordinate -300,
+            y: yCoordinate -650
+          }
+        });
+      }
 }
 
 function EnviarWhatsapp(duration){
