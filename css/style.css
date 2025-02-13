@@ -547,7 +547,7 @@ body {
   padding: 0 2rem;
   border-radius: 10px;
   background: linear-gradient(#3d3a4e, #3d3a4e) padding-box,
-  linear-gradient(145deg, transparent 35%, #e81cff, #40c9ff) border-box;
+  linear-gradient(100deg, transparent 2%, #e81cff 25.8%, #40c9ff 94.3%) border-box;
   color: #fff;
   border: 2px solid transparent;
   cursor: pointer;
@@ -574,7 +574,7 @@ body {
   height: inherit;
   border-radius: inherit;
   background: linear-gradient(82.3deg,
-      #e81cff 10.8%,
+      #e81cff 25.8%,
       #40c9ff 94.3%);
   transition: all 0.475s;
 }
@@ -686,4 +686,122 @@ input[type=number] {
 
 .input-group:hover .label, .input:focus {
   color: #05060fc2;
+}
+
+
+.button-close {
+  position: relative;
+  width: 2em;
+  height: 2em;
+  border: none;
+  background: rgba(180, 83, 107, 0.11);
+  border-radius: 5px;
+  transition: background 0.5s;
+}
+
+.X {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1.5em;
+  height: 1.5px;
+  background-color: rgb(255, 255, 255);
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.Y {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1.5em;
+  height: 1.5px;
+  background-color: #fff;
+  transform: translateX(-50%) rotate(-45deg);
+}
+
+.close-text {
+  position: absolute;
+  display: flex;
+  padding: 0.8rem 1.5rem;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(-50%);
+  top: -70%;
+  left: 50%;
+  width: 3em;
+  height: 1.7em;
+  font-size: 12px;
+  background-color: rgb(19, 22, 24);
+  color: rgb(187, 229, 236);
+  border: none;
+  border-radius: 3px;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.button-close:hover {
+  background-color: rgb(211, 21, 21);
+}
+
+.button-close:active {
+  background-color: rgb(130, 0, 0);
+}
+
+.button-close:hover > .close-text {
+  animation: close 0.2s forwards 0.25s;
+}
+
+@keyframes close-text {
+  100% {
+    opacity: 1;
+  }
+}
+
+.button-wpp {
+  background-color: #3d3a4e;
+  border: 1px solid #25D366;
+  padding: 5px;
+  position: relative;
+  width: 100%;
+  height: min-content;
+  transition: 0.5s;
+  font-size: 17px;
+  border-radius: 0.4em;
+}
+
+.button-wpp p {
+  /* position: absolute;
+  top: 0.4em;
+  left: 1.15em; */
+  margin: 0;
+  padding: 0;
+  transition: .5s;
+  color: #25D366;
+}
+
+.button-wpp svg {
+  position: absolute;
+  top: 0.45em;
+  right: 0.5em;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  transition: 0.5s;
+  height: 1em;
+  fill: #fff
+}
+
+.button-wpp:hover p {
+  left: 0.5em;
+  color: #fff
+}
+
+.button-wpp:hover svg {
+  opacity: 1;
+}
+
+.button-wpp:hover {
+  background-color: #25D366;
 }

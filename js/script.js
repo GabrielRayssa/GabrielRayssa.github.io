@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     carregarFotos();
     GerarImagem();
     Modal();
-
+    ModalSurpresa();
     const camposSenha = ["Senha1", "Senha2", "Senha3", "Senha4"];
     camposSenha.forEach(id => {
         const campo = document.getElementById(id);
@@ -83,6 +83,7 @@ function contador() {
     document.getElementById("asHoras").innerHTML = parseFloat(duration.as('hours').toFixed(2)).toLocaleString('pt-BR') + " horas";
     document.getElementById("asMinutos").innerHTML = parseFloat(duration.as('minutes').toFixed(1)).toLocaleString('pt-BR') + " minutos";
     document.getElementById("asSegundos").innerHTML = parseFloat(duration.as('seconds').toFixed(0)).toLocaleString('pt-BR') + " segundos";
+    EnviarWhatsapp(duration);
 }
 
 function createHeart(innerText) {
@@ -105,11 +106,12 @@ setInterval(contador, 1000);
 
 function Modal() {
     var modal = document.getElementById("ModalSettings");
-    window.onclick = function (event) {
+    modal.onclick = function (event) {
         if (event.target == modal) {
             modal.style.display = "none";
         }
     },
+
     document.getElementById("modal-open").onclick = function () {
         modal.style.display = "block";
     }
@@ -119,7 +121,15 @@ function Modal() {
     document.getElementById("spawnRateHidden").addEventListener("change", function () {
         
     });
+    
     document.getElementById("modal-close").onclick = function () {
+        document.getElementById("spawnRate").value = document.getElementById("spawnRateHidden").value;
+        document.getElementById("spawnItem").value = document.getElementById("spawnItemHidden").value;
+        document.getElementById("spawnRateValue").value = document.getElementById("spawnRateHidden").value + "/s"
+        modal.style.display = "none";
+    }
+    
+    document.getElementById("modal-overlay").onclick = function () {
         document.getElementById("spawnRate").value = document.getElementById("spawnRateHidden").value;
         document.getElementById("spawnItem").value = document.getElementById("spawnItemHidden").value;
         document.getElementById("spawnRateValue").value = document.getElementById("spawnRateHidden").value + "/s"
@@ -141,6 +151,45 @@ function Modal() {
     });
 
 }
+
+
+function ModalSurpresa(){
+    var modal = document.getElementById("ModalSurpresa");
+    document.getElementById("modal-surpresa-open").onclick = function () {
+        modal.style.display = "block";
+    }
+    document.getElementById("modal-surpresa-fechar-x").onclick = function () {
+        modal.style.display = "none";
+    }
+    document.getElementById("modal-surpresa-fechar").onclick = function () {
+        modal.style.display = "none";
+    }
+    document.getElementById("modal-surpresa-overlay").onclick = function () {
+        modal.style.display = "none";
+    }
+}
+
+function EnviarWhatsapp(duration){
+    let link;
+    document.getElementById("lembranca-gabs").onclick = function () {
+        if(duration.years() < 1){
+            link = `https://api.whatsapp.com/send?phone=5527992294225&text=Oi%20amor%2C%20s%C3%B3%20queria%20te%20lembrar%20que%20estamos%20juntos%20a%20${duration.months()}%20meses%2C%20${duration.days()}%20dias%2C%20${duration.hours()}%20horas%2C%20${duration.minutes()}%20minutos%20e%20mais%20ou%20menos%20${duration.seconds()}%20segundos%20%0ATe%20amo%20%E2%9D%A4%EF%B8%8F`;
+        }else{
+            link = `https://api.whatsapp.com/send?phone=5527992294225&text=Oi%20amor%2C%20s%C3%B3%20queria%20te%20lembrar%20que%20estamos%20juntos%20a%20${duration.years()}%20ano%2C%20${duration.months()}%20meses%2C%20${duration.days()}%20dias%2C%20${duration.hours()}%20horas%2C%20${duration.minutes()}%20minutos%20e%20mais%20ou%20menos%20${duration.seconds()}%20segundos%20%0ATe%20amo%20%E2%9D%A4%EF%B8%8F`;
+        }
+        window.open(link, '_blank')
+    }
+    document.getElementById("lembranca-ray").onclick = function () {
+        if(duration.years() < 1){
+            link = `https://api.whatsapp.com/send?phone=5527996130860&text=Oi%20amor%2C%20s%C3%B3%20queria%20te%20lembrar%20que%20estamos%20juntos%20a%20${duration.months()}%20meses%2C%20${duration.days()}%20dias%2C%20${duration.hours()}%20horas%2C%20${duration.minutes()}%20minutos%20e%20mais%20ou%20menos%20${duration.seconds()}%20segundos%20%0ATe%20amo%20%E2%9D%A4%EF%B8%8F`;
+        }else{
+            link = `https://api.whatsapp.com/send?phone=5527996130860&text=Oi%20amor%2C%20s%C3%B3%20queria%20te%20lembrar%20que%20estamos%20juntos%20a%20${duration.years()}%20ano%2C%20${duration.months()}%20meses%2C%20${duration.days()}%20dias%2C%20${duration.hours()}%20horas%2C%20${duration.minutes()}%20minutos%20e%20mais%20ou%20menos%20${duration.seconds()}%20segundos%20%0ATe%20amo%20%E2%9D%A4%EF%B8%8F`;
+        }
+        
+        window.open(link, '_blank')
+    }
+}
+
 let currentIndex = 0;
 
 function scrollCarousel(direction) {
