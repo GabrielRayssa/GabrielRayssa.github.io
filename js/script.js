@@ -170,9 +170,6 @@ function ModalSurpresa(){
     document.getElementById("modal-surpresa-fechar-x").onclick = function () {
         modal.style.display = "none";
     }
-    document.getElementById("modal-surpresa-fechar").onclick = function () {
-        modal.style.display = "none";
-    }
     document.getElementById("modal-surpresa-overlay").onclick = function () {
         modal.style.display = "none";
     }
@@ -316,12 +313,12 @@ function GerarImagem() {
         ctx.fillRect(0, 0, 400, 400);
 
         ctx.fillStyle = 'black';
-        ctx.font = "bold 48px serif";
-        ctx.fillText("Rayssa e Gabriel", 25, 90);
+        ctx.font = "bold 40px serif";
+        ctx.fillText("Rayssa e Gabriel", 40, 90);
 
         ctx.fillStyle = 'white';
-        ctx.font = "bold 48px serif";
-        ctx.fillText("Rayssa e Gabriel", 22, 93);
+        ctx.font = "bold 40px serif";
+        ctx.fillText("Rayssa e Gabriel", 38, 93);
 
         ctx.fillStyle = 'white';
         ctx.font = "20px serif";
