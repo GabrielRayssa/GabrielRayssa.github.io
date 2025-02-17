@@ -296,7 +296,7 @@ function carregarFotos() {
 
 function GerarImagem() {
     var hoje = moment(new Date()); //"now"
-    var DataInicio = moment(new Date(2024, 7, 18));
+    var DataInicio = moment(new Date(2024, 7, 19));
     var duration = moment.duration(hoje.diff(DataInicio))
     var canvas = document.getElementById("Compartilhar");
     if (canvas.getContext) {
